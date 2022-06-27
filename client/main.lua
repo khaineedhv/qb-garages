@@ -369,7 +369,7 @@ RegisterNetEvent('qb-garages:client:takeOutGarage', function(data)
                     TriggerServerEvent('qb-garage:server:updateVehicleState', 0, vehicle.plate, index)
                     closeMenuFull()
                     TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
-                    TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+                    exports['qb-vehiclekeys']:SetVehicleKey(GetVehicleNumberPlateText(veh), true)
                     SetVehicleEngineOn(veh, true, true)
                     if type == "house" then
                         exports['qb-core']:DrawText(Lang:t("info.park_e"), 'left')
